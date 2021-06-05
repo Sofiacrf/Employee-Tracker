@@ -80,18 +80,53 @@ const runSearch = () => {
 };
 
 //  "Add department"
-function addDepartment() {
-  console.log("Added department function");
+const addDepartment = () => {
+  inquirer.prompt([{
+    name: 'department',
+    type: 'list',
+    message: 'Type the department of the employee',
+    choices: [
+      "Human Resources",
+      "Finance and Legal",
+      "Marketing and Sales",
+      "Engineer"
+    ]
+  }]).then((answer) => {
+    console.log(answer);
+  })
 }
 
 // "Add role"
-function addRole() {
-  console.log("Added role function");
+const addRole = () => {
+ inquirer.prompt([{
+   name: 'title',
+   type: 'list',
+   message: 'Choose the title of the employee',
+   choices: [
+     "Talent Acquisition Manager",
+     "Talen Acquisition Assistant",
+     "Accountant",
+     "Lawyer",
+     "Manager",
+     "Executive",
+     "Jr Executive",
+     "Sr Developer",
+     "Frontend Developer",
+     "Backend Developer"
+   ]
+ },{
+   name: 'salary',
+   type: 'input',
+   message: 'What is the employee´s salary?'
+ }
+]).then((answers) => {
+  console.log(answers);
+})
 }
 
 // "Add employee"
 const addEmployee = () => {
-    inquirer.prompt({
+    inquirer.prompt([{
       name: 'firstname',
       type: 'input',
       message: 'What is the first name of the employee that you would like to add?'
@@ -108,13 +143,8 @@ const addEmployee = () => {
       type: 'input',
       message: 'What is the manager´s Id?'
     }
-    ).then((answer) => {
-      const query = 'INSERT first_name, last_name, role_id, manager_id WHERE employee';
-      connection.query(query, [answer.firstname, answer.lastname, answer.role, answer.manager], (err, res) => {
-        res.forEach(({first_name, last_name, role_id, manager_id}) => {
-          console.log(`Position: ${first_name} || Artist: ${last_name}Song: ${role_id} || Artist: ${manager_id}`)
-        })
-      })
+  ]).then((answer) => {
+      console.log(answer)
     })
   }
 // "View department"
