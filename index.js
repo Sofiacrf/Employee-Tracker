@@ -1,5 +1,28 @@
-//const db = require("./DB/connection");
+// Require 
+const mysql = require ("mysql");
 const inquirer = require("inquirer");
+
+// set the connection
+const connection = mysql.createConnection({
+  host: "localhost",
+
+  // set port
+  port: process.env.PORT,
+
+  // username
+  user: "root",
+
+  // password
+  password: "Codexpress25_",
+  database: "employeeTracker_DB",
+});
+
+
+connection.connect((err) => {
+  if (err) throw err;
+  runSearch();
+});
+
 
 const runSearch = () => {
   inquirer
@@ -65,5 +88,3 @@ const runSearch = () => {
 // "View department",
 // "View role",
 // "View employee 
-
-runSearch();
