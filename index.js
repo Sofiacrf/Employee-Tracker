@@ -92,7 +92,7 @@ const addDepartment = () => {
       "Engineer"
     ]
   }]).then((answer) => {
-    console.log(answer);
+    console.log("You have successfully added the department!");
   })
 }
 
@@ -104,7 +104,7 @@ const addRole = () => {
    message: 'Choose the title of the employee',
    choices: [
      "Talent Acquisition Manager",
-     "Talen Acquisition Assistant",
+     "Talent Acquisition Assistant",
      "Accountant",
      "Lawyer",
      "Manager",
@@ -120,7 +120,7 @@ const addRole = () => {
    message: 'What is the employee´s salary?'
  }
 ]).then((answers) => {
-  console.log(answers);
+  console.log("You have succesfully added the salary!");
 })
 }
 
@@ -144,7 +144,7 @@ const addEmployee = () => {
       message: 'What is the manager´s Id?'
     }
   ]).then((answer) => {
-      console.log(answer)
+      console.log("You have successfully added the employee")
     })
   }
 // "View department"
